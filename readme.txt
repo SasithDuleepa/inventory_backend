@@ -1,0 +1,1 @@
+DB{inventory,root, 123456}
