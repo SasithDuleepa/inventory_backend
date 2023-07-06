@@ -9,6 +9,7 @@ const Update = require('./../routeFunc/Raw_input/Update_raw');
 const Delete = require('./../routeFunc/Raw_input/delete_a_Raw');
 const Raw_avalable = require('./../routeFunc/Raw_input/raw_avalable');
 const Get_batchNo_rawName = require('./../routeFunc/Raw_input/get_batchNO_rawName');
+const Get_qty_batchNo = require('./../routeFunc/Raw_input/get_qty_batchNo');
 const router = express.Router();
 
 router.post('/save_inputs', Save_inputs);
@@ -26,6 +27,8 @@ router.delete('/delete_raw', Delete)
 router.get('/raw_avalable', Raw_avalable);
 
 router.get('/get_batch_no',Get_batchNo_rawName);
+
+router.get('/get_available_qty',Get_qty_batchNo);
 
 
 

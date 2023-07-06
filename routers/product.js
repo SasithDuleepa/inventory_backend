@@ -6,6 +6,7 @@ const Search_one = require("./../routeFunc/productFunc/search_a_product");
 const Search_All = require("./../routeFunc/productFunc/search_all_products");
 const Update_product = require('./../routeFunc/productFunc/update_product');
 const Delete_product = require('./../routeFunc/productFunc/delete_a_product');
+const Available_product = require('./../routeFunc/productFunc/available_products');
 
 
 const router = express.Router();
@@ -21,5 +22,6 @@ router.get('/searchAll', Search_All);
 router.put('/update', Update_product);
 
 router.delete('/delete', Delete_product);
+router.get('/available', Available_product);
 
 module.exports = router;

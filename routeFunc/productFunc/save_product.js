@@ -20,8 +20,8 @@ const Save =(req,res)=>{
         }
         )
 
-        // const query = `UPDATE select_raw_materials SET status= 'done' WHERE batch_no='${batch_no}' `
-        // DB.connection.query(query, function (err, result) {
+        // const query1 = `UPDATE rawmaterialusage SET quantity_available= quantity_available-${quantity_produced} WHERE production_order_number=${production_order_number} `
+        // DB.connection.query(query1, function (err, result) {
         //     if(result){
         //         console.log(result)
         //         // res.status(200).json({ error: false, message: "product added" });
@@ -32,6 +32,18 @@ const Save =(req,res)=>{
         //     }
         // }
         // )
+        const query = `UPDATE rawmaterialusage SET status= 'done' WHERE production_order_number='${production_order_number}' `
+        DB.connection.query(query, function (err, result) {
+            if(result){
+                console.log(result)
+                // res.status(200).json({ error: false, message: "product added" });
+            }else{
+                console.log(err)
+                // res.status(200).json({ error: true, message: "product not added" });
+                // console.log(err);
+            }
+        }
+        )
 
     
         

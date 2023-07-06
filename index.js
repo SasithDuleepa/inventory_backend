@@ -10,6 +10,8 @@ const select_Raw_materials = require('./routers/production');
 const Dashboad = require('./routers/dashboad');
 const Selection = require('./routers/selection');
 const Supplier = require('./routers/supplier');
+const Raw_name = require('./routers/raw_material_name');
+const Product_names = require('./routers/Product_names');
 
 const Setting = require('./routers/setting');
 require('dotenv').config();
@@ -29,6 +31,8 @@ app.use('/dashboad', Dashboad);
 app.use('/selection', Selection);
 app.use('/supplier', Supplier);
 app.use('/setting', Setting);
+app.use('/raw_material_name', Raw_name)
+app.use('/product_name', Product_names  )
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
