@@ -1,10 +1,10 @@
-const DB = require('./../../config/database');
+const DB = require('../../../config/database');
 
 
 const Get_product_unit = (req, res) => {
     
     
-    const query = 'SELECT * FROM units';
+    const query = 'SELECT * FROM unitproduct';
     DB.connection.query(query, (err, result) => {
         if(err){
             console.log(err);

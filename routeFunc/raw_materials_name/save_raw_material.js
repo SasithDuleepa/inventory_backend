@@ -2,11 +2,10 @@
 const DB = require('../../config/database');
 
 const Save_raw_name = (req, res) => {
-    const {sale_date,customer_name,payment_method,bill_id, bill} = req.body;
+    const {raw_name} = req.body;
     
-    bill.forEach((item) => {
-        const query = `INSERT INTO raw_materials_name (raw_material) 
-        VALUES ('${item.product_name}')`;
+    
+        const query = `INSERT INTO raw_materials_name (raw_material)   VALUES ('${raw_name}')`;
 
         DB.connection.query(query, function (err, result) {
             if (result) {
@@ -15,7 +14,7 @@ const Save_raw_name = (req, res) => {
             }else{
                 console.log(err);
             }
-    })
+ 
 
     });
 
