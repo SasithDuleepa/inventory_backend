@@ -2,14 +2,14 @@ const DB = require('../../config/database');
 const url = require('url')
 const querystring = require('querystring');
 
-const Search = (req, res) => {
+const Get_data_accordingTorawName = (req, res) => {
     const urlString = req.url;
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
-    const parameter = queryParams.search;
+    const parameter = queryParams.raw_name;
     console.log(parameter)
     
-    const sql = `SELECT * FROM rawmaterialsinventory WHERE raw_material_name LIKE '%${parameter}%'`;
+    const sql = `SELECT * FROM rawmaterialsinventory WHERE raw_material_name = '${parameter}' `;
     DB.connection.query(sql, (err, result) => {
         if (err) {
             console.log(err);
@@ -21,4 +21,4 @@ const Search = (req, res) => {
 
 }
 
-module.exports = Search;
+module.exports = Get_data_accordingTorawName;

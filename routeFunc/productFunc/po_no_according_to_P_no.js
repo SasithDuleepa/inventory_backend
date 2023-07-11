@@ -7,10 +7,10 @@ const Search_one = ( req, res)=>{
     const urlString = req.url;
 const parsedUrl = url.parse(urlString);
 const queryParams = querystring.parse(parsedUrl.query);
-const parameter = queryParams.Raw_id;
+const parameter = queryParams.product_name;
       
-     
-      const sql = `SELECT * FROM rawmaterialsinventory WHERE inventory_id = ${parameter}`
+      console.log(parameter)
+      const sql = `SELECT production_order_number FROM productoutput WHERE product_name = '${parameter}'`
       DB.connection.query(sql, (err, result)=>{
         if(err){
             console.log(err)

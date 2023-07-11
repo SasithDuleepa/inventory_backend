@@ -1,10 +1,10 @@
 const DB = require('../../../config/database')
 
 const Save = async(req,res) =>{
-    // console.log(req.body)
+    console.log(req.body)
     const{ production_order_number,raw_material_name,quantity_used,unit_of_measure,batch_number,date_time_of_usage,production_line,responsible_person,scrap_waste_quantity,remarks}= req.body;
     if(!production_order_number||!raw_material_name||!quantity_used||!unit_of_measure||!batch_number||!date_time_of_usage||!production_line||!responsible_person||!scrap_waste_quantity||!remarks){
-        return res.status(400).json({error:"Please fill all the fields"})
+        return res.status(200).json({ error: true, message:"Please fill all the fields"})
     }else{
         const sql = `INSERT INTO rawmaterialusage (production_order_number,raw_material_name,quantity_used,unit_of_measure,batch_number,date_time_of_usage,production_line,responsible_person,scrap_waste_quantity,remarks,quantity_available)
         VALUES ('${production_order_number}','${raw_material_name}','${quantity_used}','${unit_of_measure}','${batch_number}','${date_time_of_usage}','${production_line}','${responsible_person}','${scrap_waste_quantity}','${remarks}','${quantity_used}')`

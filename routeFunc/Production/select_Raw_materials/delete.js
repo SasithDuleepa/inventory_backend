@@ -1,4 +1,4 @@
-const DB = require('./../../config/database');
+const DB = require('../../../config/database');
 const url = require('url')
 const querystring = require('querystring');
 
@@ -6,9 +6,9 @@ const Delete = async (req, res) => {
     const urlString = req.url;
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
-    const RawId = queryParams.Raw_id;
+    const productID = queryParams.product_id;
 
-    const sql = `DELETE FROM rawmaterialsinventory WHERE inventory_id =${RawId}`;
+    const sql = `DELETE FROM rawmaterialusage WHERE usage_id ='${productID}'`;
     DB.connection.query(sql, (err, result) => {
         if(result){
             res.status(200).json({error:false, message:"Product Delete Successfully"});

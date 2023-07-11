@@ -8,7 +8,7 @@ const Delete = async (req, res) => {
     const queryParams = querystring.parse(parsedUrl.query);
     const productID = queryParams.product_id;
 
-    const sql = `DELETE FROM inventory_item WHERE idinventory_item_id ='${productID}'`;
+    const sql = `DELETE FROM productoutput WHERE output_id ='${productID}'`;
     DB.connection.query(sql, (err, result) => {
         if(result){
             res.status(200).json({error:false, message:"Product Delete Successfully"});

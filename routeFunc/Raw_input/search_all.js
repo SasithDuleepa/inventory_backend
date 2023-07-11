@@ -5,7 +5,7 @@ const querystring = require('querystring');
 const SearchAll = (req, res) => {
     
     
-    const query = 'SELECT * FROM raw_inputs';
+    const query = 'SELECT * FROM rawmaterialsinventory';
     DB.connection.query(query, (err, result) => {
         if(err){
             console.log(err);

@@ -11,7 +11,7 @@ const parameter = queryParams.search;
     
     console.log(parameter)
     
-    const query = `SELECT * FROM select_raw_materials WHERE raw_material_name LIKE '%${parameter}%'`;
+    const query = `SELECT * FROM rawmaterialusage WHERE raw_material_name LIKE '%${parameter}%'`;
     DB.connection.query(query, (err, result) => {
         if(err){
             console.log(err);

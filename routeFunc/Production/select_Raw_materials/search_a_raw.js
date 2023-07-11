@@ -10,7 +10,7 @@ const queryParams = querystring.parse(parsedUrl.query);
 const parameter = queryParams.id;
       
       console.log(parameter)
-      const sql = `SELECT * FROM select_raw_materials WHERE idselect_raw_materials = ${parameter}`
+      const sql = `SELECT * FROM rawmaterialusage WHERE usage_id = '${parameter}'`
       DB.connection.query(sql, (err, result)=>{
         if(err){
             console.log(err)
